@@ -5,6 +5,7 @@ import org.springframework.stereotype.Service;
 import co.edu.uco.ucoparking.features.vehicle.addvehicle.application.usecase.AddVehicleUseCase;
 import co.edu.uco.ucoparking.features.vehicle.addvehicle.application.usecase.domain.AddVehicleDomain;
 
+@Service
 public class AddVehicleUseCaseImpl implements AddVehicleUseCase {
 
 	@Override
