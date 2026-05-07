@@ -1,0 +1,6 @@
+#FileLock
+#Wed May 06 19:20:39 COT 2026
+hostName=localhost
+id=19dffced790f36e8bb054edd90f799291afbeacf60c
+method=file
+server=localhost\:57576
