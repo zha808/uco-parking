@@ -2,6 +2,9 @@ package co.edu.uco.ucoparking.features.vehicle.addvehicle.application.usecase.do
 
 import java.util.UUID;
 
+import co.edu.uco.ucoparking.crosscuting.helper.TextHelper;
+import co.edu.uco.ucoparking.crosscuting.helper.UUIDHelper;
+
 public class AddVehicleDomain {
 	private UUID id;
 	private String plate;
@@ -18,7 +21,7 @@ public class AddVehicleDomain {
 	}
 
 	private void generateId() {
-		this.id = UUID.randomUUID();
+		this.id = UUIDHelper.getUUIDHelper().generateNewUUID();
 	}
 
 	public void regenerateId() {
@@ -42,15 +45,15 @@ public class AddVehicleDomain {
 	}
 	
 	private void setPlate(String plate) {
-		this.plate = plate;
+		this.plate = TextHelper.getDefaultWithTrim(plate);
 	}
 
 	private void setVehicleType(UUID vehicleType) {
-		this.vehicleType = vehicleType;
+		this.vehicleType = UUIDHelper.getUUIDHelper().getDefault(vehicleType);
 	}
 
 	private void setOwner(UUID owner) {
-		this.owner = owner;
+		this.owner = UUIDHelper.getUUIDHelper().getDefault(owner);
 	}
 
 }

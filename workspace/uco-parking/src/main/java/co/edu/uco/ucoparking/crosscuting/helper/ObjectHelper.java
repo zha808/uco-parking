@@ -1,0 +1,18 @@
+package co.edu.uco.ucoparking.crosscuting.helper;
+
+public class ObjectHelper {
+	
+	private ObjectHelper() {
+		
+	}
+	
+	public static <O> boolean isNull(O object) {
+		return object == null;
+	}
+	
+	public static <O> O getDefault (final O object,final O defaultValue) {
+		
+		return isNull (object) ? defaultValue : object;
+	}
+	
+}

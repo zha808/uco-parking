@@ -1,11 +1,11 @@
 package co.edu.uco.ucoparking.features.vehicle.addvehicle.application.inputport.impl;
 
-import co.edu.uco.ucoparking.features.vehicle.addvehicle.mapper.AddVehicleMapper;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
 import co.edu.uco.ucoparking.features.vehicle.addvehicle.application.inputport.AddVehicleInputPort;
 import co.edu.uco.ucoparking.features.vehicle.addvehicle.application.inputport.dto.AddVehicleDTO;
+import co.edu.uco.ucoparking.features.vehicle.addvehicle.application.inputport.mapper.AddVehicleDomainMapper;
 import co.edu.uco.ucoparking.features.vehicle.addvehicle.application.usecase.AddVehicleUseCase;
 import co.edu.uco.ucoparking.features.vehicle.addvehicle.application.usecase.domain.AddVehicleDomain;
 import co.edu.uco.ucoparking.features.vehicle.addvehicle.application.usecase.impl.AddVehicleUseCaseImpl;
@@ -17,9 +17,9 @@ import co.edu.uco.ucoparking.features.vehicle.addvehicle.application.usecase.imp
 public class AddVehicleInteractor implements AddVehicleInputPort {
 	
 	private AddVehicleUseCase useCase;
-	private AddVehicleMapper mapper;
+	private AddVehicleDomainMapper mapper;
 	
-	public AddVehicleInteractor(AddVehicleUseCase useCase, AddVehicleMapper mapper) {
+	public AddVehicleInteractor(AddVehicleUseCase useCase, AddVehicleDomainMapper mapper) {
 		this.useCase = useCase;
 		this.mapper = mapper;
 	}
