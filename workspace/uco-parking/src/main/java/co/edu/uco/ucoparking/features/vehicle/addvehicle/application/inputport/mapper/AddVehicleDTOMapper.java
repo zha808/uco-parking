@@ -7,9 +7,8 @@ import co.edu.uco.ucoparking.features.vehicle.addvehicle.application.inputport.d
 import co.edu.uco.ucoparking.features.vehicle.addvehicle.application.usecase.domain.AddVehicleDomain;
 
 @Mapper(componentModel = "spring")
-public interface AddVehicleDomainMapper {
+public interface AddVehicleDTOMapper {
 	
-	@Mapping(target = "id", ignore = true)
 	AddVehicleDomain toDomain(AddVehicleDTO dto);
 	
 	AddVehicleDTO toDTO(AddVehicleDomain domain);

@@ -6,6 +6,7 @@ import java.util.UUID;
 import org.springframework.stereotype.Repository;
 
 import co.edu.uco.ucoparking.infrastructure.persistence.repository.CustomerRepository;
+import co.edu.uco.ucoparking.infrastructure.persistence.repository.adapter.sql.jpa.mapper.CustomerJPARepositoryMapper;
 import co.edu.uco.ucoparking.infrastructure.persistence.repository.entity.CustomerEntity;
 import co.edu.uco.ucoparking.infrastructure.persistence.repository.sql.jpa.CustomerJPARepository;
 import co.edu.uco.ucoparking.infrastructure.persistence.repository.sql.jpa.entity.CustomerJPAEntity;
@@ -13,16 +14,18 @@ import co.edu.uco.ucoparking.infrastructure.persistence.repository.sql.jpa.entit
 @Repository
 public class CustomerJPARepositoryAdapter implements CustomerRepository {
 	
-	private CustomerJPARepository repository;
+	private final CustomerJPARepository repository;
+	private final CustomerJPARepositoryMapper mapper;
 	
-	public CustomerJPARepositoryAdapter (CustomerJPARepository repository) {
+	public CustomerJPARepositoryAdapter (CustomerJPARepository repository, CustomerJPARepositoryMapper mapper) {
 		this.repository = repository;
+		this.mapper = mapper;
 	}
 
 	@Override
 	public void create(CustomerEntity entity) {
 		// CustomerEntity -> CustomerJPAEntity (Mapper)
-		CustomerJPAEntity jpaEntity = null;
+		CustomerJPAEntity jpaEntity = mapper.toJPARepository(entity);
 		repository.save(jpaEntity);
 		
 	}
@@ -30,8 +33,7 @@ public class CustomerJPARepositoryAdapter implements CustomerRepository {
 	@Override
 	public void update(UUID id, CustomerEntity entity) {
 		// CustomerEntity -> CustomerJPAEntity (Mapper)
-		CustomerJPAEntity jpaEntity = null;
-		repository.save(jpaEntity);
+		
 		
 	}
 

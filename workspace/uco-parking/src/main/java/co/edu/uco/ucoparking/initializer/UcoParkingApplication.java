@@ -2,9 +2,11 @@ package co.edu.uco.ucoparking.initializer;
 
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
+import org.springframework.boot.persistence.autoconfigure.EntityScan;
 import org.springframework.context.annotation.ComponentScan;
 
 @ComponentScan(basePackages = {"co.edu.uco.ucoparking"})
+@EntityScan(basePackages = {"co.edu.uco.ucoparking"})
 @SpringBootApplication
 public class UcoParkingApplication {
 

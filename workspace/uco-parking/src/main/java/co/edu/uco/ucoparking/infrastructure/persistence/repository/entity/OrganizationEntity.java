@@ -11,6 +11,8 @@ public class OrganizationEntity {
 	
 	public OrganizationEntity() {
 		super();
+		setId(UUIDHelper.getUUIDHelper().getDefault());
+		setName(TextHelper.getDefault());
 	}
 	
 	public OrganizationEntity(UUID id) {
